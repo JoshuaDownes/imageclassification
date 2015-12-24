@@ -3,12 +3,17 @@ import requests
 import re
 import urllib2
 import os
+import sys
 
 def get_soup(url):
-    return BeautifulSoup(requests.get(url).text)
+    return BeautifulSoup(requests.get(url).text, 'lxml')
 
-image_type = "check"
-query = "check"
+if len(sys.argv) != 2:
+    print "Invalid args.\nUSAGE: python query_bing_images.py IMAGE_TYPE"
+    sys.exit()
+
+image_type = sys.argv[1]
+query = sys.argv[1] 
 url = "http://www.bing.com/images/search?q=" + query + "&qft=+filterui:color2-bw+filterui:imagesize-large&FORM=R5IR3"
 
 soup = get_soup(url)
