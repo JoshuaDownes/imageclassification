@@ -1,4 +1,5 @@
 import numpy as np
+import Image
 
 # Standard size to normalize everything to the same shape
 STANDARD_SIZE = (300, 167)

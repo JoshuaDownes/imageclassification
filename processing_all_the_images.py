@@ -1,3 +1,6 @@
+import os
+import numpy as np
+
 img_dir = "images/"
 images = [img_dir + f for f in os.listdir(img_dir)]
 labels = ["check" if "check" in f.split('/')[-1] else "drivers_license" for f in images]
